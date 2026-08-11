@@ -1,71 +1,180 @@
-# AI Resume Checker
+# 🚀 AI Resume Checker
 
-An AI-powered full-stack resume analysis and optimization platform that helps users evaluate, improve, version, and track their resumes through ATS-oriented analysis and generative AI.
+> **AI-powered resume analysis, ATS optimization, rewriting, versioning, and insights — all in one platform.**
 
-## Overview
+AI Resume Checker is a full-stack AI-powered platform designed to help users analyze, improve, and manage their resumes. It combines ATS-oriented scoring, AI-generated recommendations, resume rewriting, version control, analytics, and activity tracking into a single modern web application.
 
-AI Resume Checker provides an end-to-end workflow for resume optimization. Users can upload a resume, receive an AI-generated analysis with an ATS score, identify missing keywords and improvement areas, rewrite resume content, create new resume versions, and compare changes across versions.
+The platform uses **React + Vite** on the frontend, **Node.js + Express** on the backend, **MongoDB Atlas** for persistence, and **Google Gemini** for intelligent resume analysis and rewriting.
 
-The platform combines a React-based frontend, Node.js/Express backend, MongoDB persistence, and Google Gemini for AI-powered resume analysis and rewriting.
+---
 
-## Key Features
-
-- **Secure Authentication** — JWT-based registration, login, protected routes, profile and password management.
-- **Resume Management** — Upload, parse, view, and manage resumes.
-- **ATS Analysis** — Generate ATS-oriented scores, identify issues, keywords, strengths, and improvement areas.
-- **AI-Powered Rewriting** — Improve resume content using Gemini while preserving version history.
-- **Resume Versioning** — Maintain multiple versions with parent-version relationships and independent analysis data.
-- **Version Comparison** — Compare two resume versions and identify content changes.
-- **Dashboard** — Track ATS scores, resume versions, issues, keywords, and recent activity.
-- **Analytics & Insights** — Analyze score trends, common issues, keyword patterns, and resume performance.
-- **Activity History** — Track uploads, analyses, and rewrite operations chronologically.
-
-## Tech Stack
+## 🌐 Live Demo
 
 ### Frontend
-- React.js
-- Vite
-- Tailwind CSS
-- Axios
+🔗 https://ai-resume-checker-frontend-nine.vercel.app
 
-### Backend
-- Node.js
-- Express.js
-- Mongoose
-- JWT
-- Multer
-- Zod
+### Backend API
+🔗 https://ai-resume-checker-umber-two.vercel.app
 
-### Database & AI
-- MongoDB Atlas
-- Google Gemini API
+> The backend root endpoint intentionally returns `Route GET / not found` because the API does not expose a homepage route. The backend REST endpoints are consumed directly by the frontend.
 
-### Development
-- Git & GitHub
+---
+
+## ✨ Features
+
+### 🔐 Authentication
+- Secure user registration and login
+- JWT-based authentication
+- HTTP cookie-based sessions
+- Protected API routes
+- Profile management
+- Password management
+- Authentication-aware frontend routing
+
+### 📄 Resume Management
+- Upload resumes in PDF format
+- Server-side PDF parsing
+- Resume text extraction
+- Resume storage and management
+- View previously uploaded resumes
+- Track resume activity
+
+### 🎯 ATS Resume Analysis
+- AI-powered ATS score generation
+- Resume strengths and weaknesses
+- Missing keyword identification
+- Resume issue detection
+- Improvement recommendations
+- Job-readiness insights
+- Actionable optimization suggestions
+
+### 🤖 AI-Powered Resume Rewriting
+- AI-assisted resume improvement
+- Rewrite weak resume content
+- Generate stronger resume bullets
+- Improve clarity and impact
+- Preserve resume context while improving wording
+
+### 🧬 Resume Versioning
+- Create multiple resume versions
+- Maintain parent-child version relationships
+- Track changes between versions
+- Store independent analysis results
+- Maintain a history of resume improvements
+
+### 📊 Dashboard
+- Overall ATS score
+- Resume activity
+- Resume versions
+- Detected issues
+- Keywords
+- Recent activity
+- Quick access to resume analysis
+
+### 📈 Analytics & Insights
+- ATS score trends
+- Resume performance tracking
+- Common resume issues
+- Keyword patterns
+- Historical analysis
+- Resume improvement insights
+
+### 🕒 Activity History
+Track important resume operations such as:
+
+- Resume uploads
+- Resume analysis
+- AI rewriting
+- Version creation
+- Resume updates
+
+---
+
+# 🛠️ Tech Stack
+
+## Frontend
+
+| Technology | Purpose |
+|------------|---------|
+| React.js | Frontend UI |
+| Vite | Development & production build |
+| Tailwind CSS | Styling |
+| Axios | API communication |
+| React Router | Client-side routing |
+
+## Backend
+
+| Technology | Purpose |
+|------------|---------|
+| Node.js | Runtime |
+| Express.js | REST API |
+| Mongoose | MongoDB ODM |
+| JWT | Authentication |
+| Cookie-based Sessions | Secure authentication |
+| Multer | File uploads |
+| Zod | Request validation |
+| pdf-parse | PDF text extraction |
+| @napi-rs/canvas | PDF parsing support |
+
+## Database & AI
+
+| Technology | Purpose |
+|------------|---------|
+| MongoDB Atlas | Database |
+| Google Gemini API | AI resume analysis & rewriting |
+
+## Development & Deployment
+
+- Git
+- GitHub
+- VS Code
 - Postman
 - Nodemon
-- VS Code
+- Vercel
 
-## Architecture
+---
+
+# 🏗️ System Architecture
 
 ```text
-┌─────────────────────┐
-│     React Client    │
-│   React + Vite      │
-└──────────┬──────────┘
-           │ REST API
-           ▼
-┌─────────────────────┐
-│   Express Backend   │
-│                     │
-│ Routes              │
-│ Middleware          │
-│ Services            │
-│ Models              │
-└───────┬───────┬─────┘
-        │       │
-        ▼       ▼
-┌───────────┐ ┌──────────────┐
-│ MongoDB   │ │ Gemini API   │
-│   Atlas   │ │              │
-└───────────┘ └──────────────┘
+                         ┌──────────────────────────┐
+                         │        User / Browser    │
+                         └────────────┬─────────────┘
+                                      │
+                                      ▼
+                         ┌──────────────────────────┐
+                         │      React Frontend      │
+                         │       Vite + Tailwind    │
+                         │                          │
+                         │  Dashboard               │
+                         │  Resume Management       │
+                         │  Analytics               │
+                         │  Versioning              │
+                         │  Authentication          │
+                         └────────────┬─────────────┘
+                                      │
+                                  REST API
+                                      │
+                                      ▼
+                         ┌──────────────────────────┐
+                         │    Node.js + Express     │
+                         │        Backend           │
+                         │                          │
+                         │  Authentication          │
+                         │  Resume Routes           │
+                         │  Dashboard Routes        │
+                         │  Analytics Routes        │
+                         │  History Routes          │
+                         │  Resume Services         │
+                         └───────┬──────────┬───────┘
+                                 │          │
+                    ┌────────────┘          └─────────────┐
+                    ▼                                    ▼
+          ┌──────────────────┐                 ┌──────────────────┐
+          │   MongoDB Atlas  │                 │   Google Gemini  │
+          │                  │                 │                  │
+          │ Users            │                 │ AI Analysis      │
+          │ Resumes          │                 │ AI Rewriting     │
+          │ Versions         │                 │ Recommendations  │
+          │ Activity         │                 │ ATS Insights     │
+          └──────────────────┘                 └──────────────────┘
